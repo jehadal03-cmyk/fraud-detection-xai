@@ -48,12 +48,12 @@ def split_data(X, y, test_size=0.2, random_state=42):
 
 if __name__=="__main__":
     df = load_data()
-    print("عدد الصفوف والأعمدة:", df.shape)
-    print("توزيع الفئات (0=سليمة, 1=احتيال):")
+    print("row and columns:", df.shape)
+    print("class distribution (0=normal, 1=fraud)")
     print(df["Class"].value_counts())
 
     X, y, scaler = preprocess_data(df)
     X_train, X_test, y_train, y_test = split_data(X, y)
 
-    print("\nحجم بيانات التدريب:", X_train.shape)
-    print("حجم بيانات الاختبار:", X_test.shape)
+    print("\ntraining set size:", X_train.shape)
+    print("test set size:", X_test.shape)

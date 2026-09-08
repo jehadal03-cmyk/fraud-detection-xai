@@ -51,14 +51,14 @@ def save_model(model, path="models/fraud_model.pkl"):
 
 
 if __name__=="__main__":
-    print("جاري تحميل البيانات...")
+    print("loading data...")
     df = load_data()
 
-    print("جاري تجهيز البيانات...")
+    print("preprocessing data...")
     X, y, scaler = preprocess_data(df)
     X_train, X_test, y_train, y_test = split_data(X, y)
 
-    print("جاري تدريب الموديل... (قد يأخذ دقيقة أو أكثر)")
+    print("trainging modle... (may take a minute or more)")
     model = train_model(X_train, y_train)
 
     evaluate_model(model, X_test, y_test)
