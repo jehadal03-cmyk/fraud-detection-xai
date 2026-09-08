@@ -37,17 +37,17 @@ def evaluate_model(model, X_test, y_test):
     """يطبع تقرير أداء الموديل: Precision, Recall, F1-score، ومصفوفة الالتباس."""
     y_pred = model.predict(X_test)
 
-    print("\n=== تقرير الأداء ===")
-    print(classification_report(y_test, y_pred, target_names=["سليمة", "احتيال"]))
+    print("\n===performance report===")
+    print(classification_report(y_test, y_pred, target_names=["normal", "fraud"]))
 
-    print("=== مصفوفة الالتباس (Confusion Matrix) ===")
+    print("=== Confusion Matrix ===")
     print(confusion_matrix(y_test, y_pred))
 
 
 def save_model(model, path="models/fraud_model.pkl"):
     """يحفظ الموديل المدرّب كملف لاستخدامه لاحقًا في الواجهة."""
     joblib.dump(model, path)
-    print(f"\nتم حفظ الموديل بنجاح في: {path}")
+    print(f"\nThe model was successfully saved in: {path}")
 
 
 if __name__=="__main__":
